@@ -1,0 +1,233 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server.",
+        "title": "Test Swagger API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/addfin": {
+            "post": {
+                "description": "Add a new finance record",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "finances"
+                ],
+                "summary": "Add finance",
+                "parameters": [
+                    {
+                        "description": "Finance data to add",
+                        "name": "finance",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/hendler.Finance"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/hendler.Finance"
+                        }
+                    }
+                }
+            }
+        },
+        "/all": {
+            "get": {
+                "description": "Get all finances",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "finances"
+                ],
+                "summary": "Get all finances",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/hendler.Finance"
+                        }
+                    }
+                }
+            }
+        },
+        "/finance/{id}": {
+            "get": {
+                "description": "Get finance by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "finances"
+                ],
+                "summary": "Get finance by ID",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Finance ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/hendler.Finance"
+                        }
+                    }
+                }
+            }
+        },
+        "/removefin/{id}": {
+            "delete": {
+                "description": "Remove finance by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "finances"
+                ],
+                "summary": "Remove finance",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Finance ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/hendler.Finance"
+                        }
+                    }
+                }
+            }
+        },
+        "/updatefin/{id}": {
+            "put": {
+                "description": "Update finance by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "finances"
+                ],
+                "summary": "Update finance",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Finance ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Finance data to update",
+                        "name": "finance",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/hendler.FinanceUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/hendler.FinanceResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/hendler.ErrorResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/hendler.ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "hendler.ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string",
+                    "example": "Некорректные данные"
+                }
+            }
+        },
+        "hendler.Finance": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "sum": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "hendler.FinanceResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "example": "Данные успешно обновлены"
+                }
+            }
+        },
+        "hendler.FinanceUpdateRequest": {
+            "type": "object",
+            "properties": {
+                "sum": {
+                    "type": "integer",
+                    "example": 200
+                },
+                "type": {
+                    "type": "string",
+                    "example": "expense"
+                }
+            }
+        }
+    }
+}

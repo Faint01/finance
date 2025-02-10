@@ -1,0 +1,153 @@
+basePath: /api/v1
+definitions:
+  hendler.ErrorResponse:
+    properties:
+      error:
+        example: Некорректные данные
+        type: string
+    type: object
+  hendler.Finance:
+    properties:
+      id:
+        type: integer
+      sum:
+        type: integer
+      type:
+        type: string
+    type: object
+  hendler.FinanceResponse:
+    properties:
+      message:
+        example: Данные успешно обновлены
+        type: string
+    type: object
+  hendler.FinanceUpdateRequest:
+    properties:
+      sum:
+        example: 200
+        type: integer
+      type:
+        example: expense
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is a sample server.
+  title: Test Swagger API
+  version: "1.0"
+paths:
+  /addfin:
+    post:
+      consumes:
+      - application/json
+      description: Add a new finance record
+      parameters:
+      - description: Finance data to add
+        in: body
+        name: finance
+        required: true
+        schema:
+          $ref: '#/definitions/hendler.Finance'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/hendler.Finance'
+      summary: Add finance
+      tags:
+      - finances
+  /all:
+    get:
+      consumes:
+      - application/json
+      description: Get all finances
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/hendler.Finance'
+      summary: Get all finances
+      tags:
+      - finances
+  /finance/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get finance by ID
+      parameters:
+      - description: Finance ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/hendler.Finance'
+      summary: Get finance by ID
+      tags:
+      - finances
+  /removefin/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Remove finance by ID
+      parameters:
+      - description: Finance ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/hendler.Finance'
+      summary: Remove finance
+      tags:
+      - finances
+  /updatefin/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update finance by ID
+      parameters:
+      - description: Finance ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Finance data to update
+        in: body
+        name: finance
+        required: true
+        schema:
+          $ref: '#/definitions/hendler.FinanceUpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/hendler.FinanceResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/hendler.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/hendler.ErrorResponse'
+      summary: Update finance
+      tags:
+      - finances
+swagger: "2.0"
