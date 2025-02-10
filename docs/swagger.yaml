@@ -1,12 +1,12 @@
 basePath: /api/v1
 definitions:
-  hendler.ErrorResponse:
+  handler.ErrorResponse:
     properties:
       error:
         example: Некорректные данные
         type: string
     type: object
-  hendler.Finance:
+  handler.Finance:
     properties:
       id:
         type: integer
@@ -15,13 +15,13 @@ definitions:
       type:
         type: string
     type: object
-  hendler.FinanceResponse:
+  handler.FinanceResponse:
     properties:
       message:
         example: Данные успешно обновлены
         type: string
     type: object
-  hendler.FinanceUpdateRequest:
+  handler.FinanceUpdateRequest:
     properties:
       sum:
         example: 200
@@ -47,14 +47,14 @@ paths:
         name: finance
         required: true
         schema:
-          $ref: '#/definitions/hendler.Finance'
+          $ref: '#/definitions/handler.Finance'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/hendler.Finance'
+            $ref: '#/definitions/handler.Finance'
       summary: Add finance
       tags:
       - finances
@@ -69,7 +69,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/hendler.Finance'
+            $ref: '#/definitions/handler.Finance'
       summary: Get all finances
       tags:
       - finances
@@ -90,7 +90,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/hendler.Finance'
+            $ref: '#/definitions/handler.Finance'
       summary: Get finance by ID
       tags:
       - finances
@@ -111,7 +111,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/hendler.Finance'
+            $ref: '#/definitions/handler.Finance'
       summary: Remove finance
       tags:
       - finances
@@ -131,22 +131,22 @@ paths:
         name: finance
         required: true
         schema:
-          $ref: '#/definitions/hendler.FinanceUpdateRequest'
+          $ref: '#/definitions/handler.FinanceUpdateRequest'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/hendler.FinanceResponse'
+            $ref: '#/definitions/handler.FinanceResponse'
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/hendler.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/hendler.ErrorResponse'
+            $ref: '#/definitions/handler.ErrorResponse'
       summary: Update finance
       tags:
       - finances

@@ -35,7 +35,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 ],
@@ -43,7 +43,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 }
@@ -66,7 +66,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 }
@@ -98,7 +98,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 }
@@ -130,7 +130,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 }
@@ -163,7 +163,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/hendler.FinanceUpdateRequest"
+                            "$ref": "#/definitions/handler.FinanceUpdateRequest"
                         }
                     }
                 ],
@@ -171,19 +171,19 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.FinanceResponse"
+                            "$ref": "#/definitions/handler.FinanceResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/hendler.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/hendler.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -191,7 +191,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "hendler.ErrorResponse": {
+        "handler.ErrorResponse": {
             "type": "object",
             "properties": {
                 "error": {
@@ -200,7 +200,7 @@ const docTemplate = `{
                 }
             }
         },
-        "hendler.Finance": {
+        "handler.Finance": {
             "type": "object",
             "properties": {
                 "id": {
@@ -214,7 +214,7 @@ const docTemplate = `{
                 }
             }
         },
-        "hendler.FinanceResponse": {
+        "handler.FinanceResponse": {
             "type": "object",
             "properties": {
                 "message": {
@@ -223,7 +223,7 @@ const docTemplate = `{
                 }
             }
         },
-        "hendler.FinanceUpdateRequest": {
+        "handler.FinanceUpdateRequest": {
             "type": "object",
             "properties": {
                 "sum": {

@@ -28,7 +28,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 ],
@@ -36,7 +36,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 }
@@ -59,7 +59,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 }
@@ -91,7 +91,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 }
@@ -123,7 +123,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.Finance"
+                            "$ref": "#/definitions/handler.Finance"
                         }
                     }
                 }
@@ -156,7 +156,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/hendler.FinanceUpdateRequest"
+                            "$ref": "#/definitions/handler.FinanceUpdateRequest"
                         }
                     }
                 ],
@@ -164,19 +164,19 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/hendler.FinanceResponse"
+                            "$ref": "#/definitions/handler.FinanceResponse"
                         }
                     },
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "$ref": "#/definitions/hendler.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     },
                     "500": {
                         "description": "Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/hendler.ErrorResponse"
+                            "$ref": "#/definitions/handler.ErrorResponse"
                         }
                     }
                 }
@@ -184,7 +184,7 @@
         }
     },
     "definitions": {
-        "hendler.ErrorResponse": {
+        "handler.ErrorResponse": {
             "type": "object",
             "properties": {
                 "error": {
@@ -193,7 +193,7 @@
                 }
             }
         },
-        "hendler.Finance": {
+        "handler.Finance": {
             "type": "object",
             "properties": {
                 "id": {
@@ -207,7 +207,7 @@
                 }
             }
         },
-        "hendler.FinanceResponse": {
+        "handler.FinanceResponse": {
             "type": "object",
             "properties": {
                 "message": {
@@ -216,7 +216,7 @@
                 }
             }
         },
-        "hendler.FinanceUpdateRequest": {
+        "handler.FinanceUpdateRequest": {
             "type": "object",
             "properties": {
                 "sum": {

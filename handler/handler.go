@@ -1,4 +1,4 @@
-package hendler
+package handler
 
 import (
 	"database/sql"
@@ -55,7 +55,7 @@ func init() {
 // @Tags			finances
 // @Accept			json
 // @Produce			json
-// @Success		200	{object}	hendler.Finance
+// @Success		200	{object}	handler.Finance
 // @Router			/all [get]
 func GetAll(c *gin.Context) {
 	res, err := DB.Prepare("SELECT * FROM financeprod")
@@ -99,8 +99,8 @@ func GetAll(c *gin.Context) {
 // @Tags			finances
 // @Accept			json
 // @Produce		json
-// @Param 			finance body hendler.Finance true "Finance data to add"
-// @Success		200	{object}	hendler.Finance
+// @Param 			finance body handler.Finance true "Finance data to add"
+// @Success		200	{object}	handler.Finance
 // @Router			/addfin [post]
 func Postfinc(c *gin.Context) {
 	var json struct {
@@ -144,7 +144,7 @@ func Postfinc(c *gin.Context) {
 // @Accept			json
 // @Produce		json
 // @Param			id	path		int	true	"Finance ID"
-// @Success		200	{object}	hendler.Finance
+// @Success		200	{object}	handler.Finance
 // @Router			/finance/{id} [get]
 func IdSearch(c *gin.Context) {
 	var rep Finance
@@ -229,7 +229,7 @@ func Updatefin(c *gin.Context) {
 // @Accept			json
 // @Produce		json
 // @Param			id	path		int	true	"Finance ID"
-// @Success		200	{object}	hendler.Finance
+// @Success		200	{object}	handler.Finance
 // @Router			/removefin/{id} [delete]
 func RemoveRecord(c *gin.Context) {
 	resp := c.Param("id")

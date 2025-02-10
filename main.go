@@ -2,7 +2,7 @@ package main
 
 import (
 	docs "github.com/Faint01/finance/docs"
-	"github.com/Faint01/finance/hendler"
+	hendler "github.com/Faint01/finance/handler"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
